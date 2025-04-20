@@ -8,66 +8,91 @@
 
 There are several ways of editing your application.
 
-**Use Lovable**
+## 🚀 Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/633896d3-2726-40b3-a520-a58c4953f62a) and start prompting.
+- Calculates optimal delivery routes considering multiple warehouses
+- Handles complex delivery scenarios with intermediate stops
+- Validates order inputs
+- Returns minimum delivery cost
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📦 Installation
 
-**Use your preferred IDE**
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🏃‍♂️ Running Locally
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The API will be available at `http://localhost:3000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🌐 API Endpoint
 
-**Use GitHub Codespaces**
+### POST /calculate-cost
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Calculate the minimum delivery cost for an order.
 
-## What technologies are used for this project?
+**Request Body:**
+```json
+{
+    "A": 1,
+    "G": 1,
+    "H": 1,
+    "I": 3
+}
+```
 
-This project is built with:
+**Response:**
+```json
+{
+    "minimum_cost": 86
+}
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🧪 Test Cases
 
-## How can I deploy this project?
+1. `{ "A": 1, "G": 1, "H": 1, "I": 3 }` → 86
+2. `{ "A": 1, "B": 1, "C": 1, "G": 1, "H": 1, "I": 1 }` → 118
+3. `{ "A": 1, "B": 1, "C": 1 }` → 78
+4. `{ "A": 1, "B": 1, "C": 1, "D": 1 }` → 168
 
-Simply open [Lovable](https://lovable.dev/projects/633896d3-2726-40b3-a520-a58c4953f62a) and click on Share -> Publish.
+## 🚀 Deployment
 
-## Can I connect a custom domain to my Lovable project?
+This project can be deployed on Vercel:
 
-Yes, you can!
+1. Install Vercel CLI:
+```bash
+npm install -g vercel
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. Deploy:
+```bash
+vercel
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📝 Project Structure
+
+```
+.
+├── app.js              # Main application file
+├── routes/
+│   └── cost.js        # Cost calculation endpoint
+├── services/
+│   └── deliveryService.js  # Business logic
+├── utils/
+│   └── constants.js   # Static data
+├── vercel.json        # Deployment configuration
+└── package.json       # Project dependencies
+```
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests! 
+
+
