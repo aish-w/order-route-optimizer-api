@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/633896d3-2726-40b3-a520-a58c4953f62a
+**URL**: https://delivery-cost-api-i64q.onrender.com
 
 ## How can I edit this code?
 
